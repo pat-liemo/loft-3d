@@ -1,0 +1,283 @@
+.footer {
+  background: linear-gradient(to bottom, #121212, #000);  border-top: 1px solid #222;
+  color: #ddd;
+  padding: 2rem 0 1.5rem;
+  margin-top: 3rem;
+}
+
+.footer-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1rem;
+}
+
+.footer-content {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr 1.5fr;
+  gap: 1.5rem;
+  padding-bottom: 1.5rem;
+}
+
+/* Brand Column */
+.brand-column {
+  max-width: 300px;
+}
+
+.footer-brand {
+  margin-bottom: 1rem;
+}
+
+.brand-link {
+  text-decoration: none;
+  display: inline-block;
+}
+
+.brand-logo {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-bottom: 0.25rem;
+}
+
+.logo-image {
+  width: 40px;
+  height: 40px;
+  object-fit: contain;
+}
+
+.brand-name {
+  color: white;
+  font-size: 1.1rem;
+  font-weight: 600;
+  margin: 0;
+  letter-spacing: 0.1em;
+}
+
+.brand-name sup {
+  font-size: 0.7rem;
+  margin-left: 0.1rem;
+}
+
+.brand-tagline {
+  margin-left: 2.5rem;
+  font-size: 0.75rem;
+  color: #ddd;
+  font-weight: 500;
+  font-style: italic;
+  margin-top: -0.25rem;
+}
+
+.social-links {
+  display: flex;
+  gap: 0.5rem;
+  list-style: none;
+  padding: 0;
+  margin: 1rem 0 0 0;
+}
+
+.social-links li a {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 35px;
+  height: 35px;
+  background: #ffd700;
+  border-radius: 50%;
+  color: #121212;
+  transition: all 0.3s ease;
+  text-decoration: none;
+  font-size: 0.85rem;
+}
+
+.social-links li a:hover {
+  background: #ffed4e;
+  transform: translateY(-3px);
+  box-shadow: 0 4px 12px rgba(255, 215, 0, 0.3);
+}
+
+/* Footer Columns */
+.footer-column {
+  display: flex;
+  flex-direction: column;
+}
+
+.footer-heading {
+  color: white;
+  font-size: 0.95rem;
+  font-weight: 600;
+  margin-bottom: 1rem;
+  letter-spacing: 0.02em;
+}
+
+.footer-links {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+}
+
+.footer-links li a {
+  color: #aaa;
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-size: 0.85rem;
+  transition: all 0.3s ease;
+}
+
+.footer-links li a i {
+  font-size: 0.65rem;
+  color: #999;
+  transition: transform 0.3s ease;
+}
+
+.footer-links li a:hover {
+  color: #ffd700;
+  padding-left: 0.25rem;
+}
+
+.footer-links li a:hover i {
+  transform: translateX(3px);
+}
+
+/* Contact Column */
+.contact-column {
+  max-width: 280px;
+}
+
+.contact-info {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.contact-info li {
+  display: flex;
+  gap: 0.6rem;
+  align-items: flex-start;
+  color: #aaa;
+  font-size: 0.85rem;
+  line-height: 1.5;
+}
+
+.contact-info li i {
+  color: #ffd700;
+  font-size: 0.9rem;
+  margin-top: 0.15rem;
+  min-width: 16px;
+}
+
+.contact-info li a {
+  display: flex;
+  gap: 0.75rem;
+  align-items: flex-start;
+  color: #aaa;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.contact-info li a:hover {
+  color: #ffd700;
+}
+
+/* Responsive Design */
+@media (max-width: 992px) {
+  .footer-content {
+    grid-template-columns: 1fr 1fr;
+    gap: 2.5rem;
+  }
+
+  .brand-column {
+    grid-column: 1 / -1;
+    max-width: 100%;
+  }
+
+  .contact-column {
+    grid-column: 1 / -1;
+    max-width: 100%;
+  }
+}
+
+@media (max-width: 768px) {
+  .footer {
+    padding: 2rem 0 1.5rem;
+    margin-top: 2rem;
+  }
+
+  .footer-container {
+    padding: 0 1rem;
+  }
+
+  .footer-content {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+
+  .brand-column,
+  .contact-column {
+    max-width: 100%;
+  }
+
+  .brand-logo {
+    margin-bottom: 0.5rem;
+  }
+
+  .logo-image {
+    width: 45px;
+    height: 45px;
+  }
+
+  .brand-name {
+    font-size: 1.2rem;
+  }
+
+  .brand-tagline {
+    margin-left: 0;
+    margin-top: 0.5rem;
+    font-size: 0.8rem;
+  }
+
+  .social-links {
+    margin-top: 1rem;
+    gap: 0.75rem;
+  }
+
+  .social-links li a {
+    width: 40px;
+    height: 40px;
+    font-size: 0.9rem;
+  }
+
+  .footer-heading {
+    font-size: 1rem;
+    margin-bottom: 1rem;
+    font-weight: 600;
+  }
+
+  .footer-links {
+    gap: 0.75rem;
+  }
+
+  .footer-links li a {
+    font-size: 0.9rem;
+  }
+
+  .contact-info {
+    gap: 1rem;
+  }
+
+  .contact-info li {
+    font-size: 0.9rem;
+  }
+
+  .contact-info li i {
+    font-size: 0.95rem;
+    min-width: 18px;
+  }
+}

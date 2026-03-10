@@ -1,0 +1,125 @@
+.menu-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.5);
+  z-index: 9999;
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.3s ease;
+}
+
+.menu-overlay.active {
+  opacity: 1;
+  visibility: visible;
+}
+
+.hamburger-menu {
+  position: fixed;
+  top: 0;
+  right: 0;
+  width: 280px;
+  max-height: 0;
+  background: white;
+  z-index: 10000;
+  overflow: hidden;
+  transition: max-height 0.3s ease;
+  display: flex;
+  flex-direction: column;
+  box-shadow: -4px 4px 20px rgba(0, 0, 0, 0.1);
+  border-radius: 0 0 0 16px;
+}
+
+.hamburger-menu.open {
+  max-height: 400px;
+}
+
+.menu-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 1.5rem;
+  border-bottom: 1px solid #f0f0f0;
+  background: #fafafa;
+  flex-shrink: 0;
+}
+
+.menu-header h3 {
+  font-size: 1rem;
+  font-weight: 600;
+  color: #333;
+  margin: 0;
+}
+
+.menu-close-btn {
+  background: rgba(0, 0, 0, 0.03);
+  border: none;
+  font-size: 0.7rem;
+  color: #666;
+  cursor: pointer;
+  padding: 0;
+  width: 30px;
+  height: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  transition: all 0.2s ease;  
+}
+
+.menu-close-btn:hover {
+  background: rgba(0, 0, 0, 0.08);
+}
+
+.menu-close-btn:active {
+  transform: scale(0.95);
+}
+
+.menu-nav {
+  flex: 1;
+  padding: 0.5rem 0;
+}
+
+.menu-item {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 1rem 1.5rem;
+  color: #333;
+  text-decoration: none;
+  transition: background 0.2s;
+  border-left: 3px solid transparent;
+}
+
+.menu-item:hover {
+  background: #f8f8f8;
+  border-left-color: #ffd700;
+}
+
+.menu-item i:first-child {
+  font-size: 1rem;
+  color: #666;
+  width: 20px;
+  text-align: center;
+}
+
+.menu-item span {
+  flex: 1;
+  font-size: 0.9rem;
+  font-weight: 500;
+}
+
+.menu-item i:last-child {
+  font-size: 0.75rem;
+  color: #999;
+}
+
+/* Mobile adjustments */
+@media (max-width: 480px) {
+  .hamburger-menu {
+    width: 85%;
+    max-width: 320px;
+  }
+}

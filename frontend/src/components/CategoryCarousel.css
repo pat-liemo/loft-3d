@@ -1,0 +1,135 @@
+.category-carousel {
+  padding: 1rem;
+  border-bottom: 0.5px solid #f0f0f0;
+  position: relative;
+  overflow: hidden;
+  touch-action: pan-x;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.category-track {
+  display: flex;
+  gap: 0.75rem;
+  overflow-x: auto;
+  overflow-y: hidden;
+  scroll-behavior: smooth;
+  padding: 0.5rem 0;
+  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none; /* IE and Edge */
+  flex-wrap: nowrap;
+  -webkit-overflow-scrolling: touch;
+  overscroll-behavior-x: contain;
+  overscroll-behavior-y: none;
+  will-change: scroll-position;
+}
+
+.category-track::-webkit-scrollbar {
+  display: none; /* Chrome, Safari, Opera */
+}
+
+.category-box {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+  cursor: pointer;
+  flex-shrink: 0;
+  min-width: 120px;
+  user-select: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  touch-action: manipulation;
+  -webkit-tap-highlight-color: transparent;
+  will-change: transform;
+}
+
+.category-box:active {
+  transform: scale(0.95);
+  transition: transform 0.1s ease;
+}
+
+.category-box:hover {
+  opacity: 0.9;
+}
+
+.category-image {
+  position: relative;
+  width: 120px !important;
+  height: 120px !important;
+  border-radius: 20px;
+  overflow: hidden;
+  border: 3px solid transparent;
+  transition: border-color 0.2s ease;
+  pointer-events: none;
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+  transform: translateZ(0);
+  -webkit-transform: translateZ(0);
+}
+
+.category-box.active .category-image {
+  border-color: #fff;
+}
+
+.category-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.category-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.2);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background-color 0.2s;
+}
+
+.category-box.active .category-overlay {
+  background: rgba(255, 255, 255, 0.3);
+}
+
+.category-overlay i {
+  color: white;
+  font-size: 1.5rem;
+}
+
+.category-name {
+  font-size: 0.85rem;
+  font-weight: 500;
+  color: #666;
+  text-align: center;
+  white-space: nowrap;
+  transition: color 0.2s;
+}
+
+.category-box.active .category-name {
+  color: #333;
+  font-weight: bold;
+}
+
+/* Mobile responsive */
+@media (max-width: 768px) {
+  .category-carousel {
+    padding: 0.5rem;
+  }
+  
+  .category-image {
+    width: 60px;
+    height: 60px;
+  }
+  
+  .category-overlay i {
+    font-size: 1.2rem;
+  }
+  
+  .category-name {
+    font-size: 0.8rem;
+  }
+}
