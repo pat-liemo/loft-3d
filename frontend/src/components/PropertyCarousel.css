@@ -76,3 +76,28 @@
     gap: 0.5rem;
   }
 }
+
+/* Desktop optimizations */
+@media (min-width: 769px) {
+  .property-carousel {
+    max-width: 1400px;
+    margin: 2rem auto;
+    padding: 0 2rem;
+  }
+
+  .carousel-title {
+    font-size: 1.3rem;
+    margin-bottom: 1.25rem;
+  }
+
+  .carousel-track {
+    gap: 1.5rem;
+    padding: 1rem 0;
+  }
+
+  .carousel-item {
+    flex: 0 0 320px;
+    min-width: 320px;
+    max-width: 320px;
+  }
+}

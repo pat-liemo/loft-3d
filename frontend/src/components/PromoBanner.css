@@ -11,6 +11,66 @@
   height: 180px;
 }
 
+/* Desktop optimizations */
+@media (min-width: 769px) {
+  .promo-banner {
+    max-width: 1400px;
+    margin: 2rem auto 2rem;
+    padding: 0 2rem;
+  }
+
+  .promo-carousel {
+    height: 280px;
+  }
+
+  .promo-slide {
+    height: 280px;
+  }
+
+  .split-slide {
+    height: 280px;
+    padding: 2.5rem;
+  }
+
+  .full-image-slide {
+    height: 280px;
+  }
+
+  .promo-title {
+    font-size: 1.8rem;
+  }
+
+  .promo-subtitle {
+    font-size: 0.95rem;
+  }
+
+  .full-image-slide .promo-title {
+    font-size: 2rem;
+  }
+
+  .full-image-slide .promo-subtitle {
+    font-size: 1.05rem;
+  }
+
+  .promo-btn {
+    padding: 0.65rem 1.5rem;
+    font-size: 0.9rem;
+  }
+
+  .carousel-dots {
+    bottom: 1.5rem;
+  }
+
+  .dot {
+    width: 10px;
+    height: 10px;
+  }
+
+  .dot.active {
+    width: 28px;
+  }
+}
+
 .slides-wrapper {
   position: relative;
   width: 100%;

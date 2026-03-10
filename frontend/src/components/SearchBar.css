@@ -1,6 +1,6 @@
 .search-bar {
   padding: 0 1rem;
-  margin-top: 2rem;
+  /* margin-top: 2rem; */
 }
 
 .search-input-wrapper {
@@ -40,4 +40,31 @@
   font-size: 1rem;
   padding: 0.25rem;
   cursor: pointer;
+}
+
+/* Desktop optimizations */
+@media (min-width: 769px) {
+  .search-bar {
+    max-width: 1400px;
+    margin: 2rem auto 0;
+    padding: 0 2rem;
+  }
+
+  .search-input-wrapper {
+    padding: 1.1rem 1.5rem;
+    max-width: 600px;
+  }
+
+  .search-input {
+    font-size: 0.95rem;
+  }
+
+  .searchbar.location-icon {
+    font-size: 1.15rem;
+  }
+
+  .filter-btn {
+    font-size: 1.15rem;
+    padding: 0.5rem;
+  }
 }

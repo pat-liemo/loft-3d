@@ -8,31 +8,31 @@ function CategoryCarousel({ onCategoryChange, activeCategory }) {
     {
       id: 'Specials',
       name: 'Specials',
-      image: 'https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?w=100&h=80&fit=crop',
+      image: 'https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?w=400&h=400&fit=crop&q=80',
       icon: 'fas fa-star'
     },
     {
       id: 'Apartments',
       name: 'Apartments',
-      image: 'https://images.unsplash.com/photo-1522708323590-d24dbb6b0267?w=100&h=80&fit=crop',
+      image: 'https://images.unsplash.com/photo-1522708323590-d24dbb6b0267?w=400&h=400&fit=crop&q=80',
       icon: 'fas fa-building'
     },
     {
       id: 'Houses',
       name: 'Houses',
-      image: 'https://images.unsplash.com/photo-1570129477492-45c003edd2be?w=100&h=80&fit=crop',
+      image: 'https://images.unsplash.com/photo-1570129477492-45c003edd2be?w=400&h=400&fit=crop&q=80',
       icon: 'fas fa-home'
     },
     {
       id: 'Condos',
       name: 'Condos',
-      image: 'https://images.unsplash.com/photo-1512917774080-9991f1c4c750?w=100&h=80&fit=crop',
+      image: 'https://images.unsplash.com/photo-1512917774080-9991f1c4c750?w=400&h=400&fit=crop&q=80',
       icon: 'fas fa-city'
     },
     {
       id: 'Luxury',
       name: 'Luxury',
-      image: 'https://images.unsplash.com/photo-1613490493576-7fde63acd811?w=100&h=80&fit=crop',
+      image: 'https://images.unsplash.com/photo-1613490493576-7fde63acd811?w=400&h=400&fit=crop&q=80',
       icon: 'fas fa-gem'
     }
   ];

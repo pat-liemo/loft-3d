@@ -281,3 +281,31 @@
     min-width: 18px;
   }
 }
+
+/* Desktop optimizations */
+@media (min-width: 993px) {
+  .footer {
+    padding: 4rem 0 2.5rem;
+  }
+
+  .footer-container {
+    max-width: 1400px;
+  }
+
+  .footer-content {
+    gap: 3rem;
+  }
+
+  .footer-heading {
+    font-size: 1.05rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .footer-links li a {
+    font-size: 0.95rem;
+  }
+
+  .contact-info li {
+    font-size: 0.95rem;
+  }
+}

@@ -115,7 +115,7 @@
   .explore-title {
     font-size: 1rem;
     font-weight: bold;
-    color: #000;
+    color: #121212;
     padding-left: 0.5rem;
   }
   
@@ -124,5 +124,35 @@
     width: 36px;
     height: 36px;
     min-width: 36px;
+  }
+}
+
+/* Desktop optimizations */
+@media (min-width: 769px) {
+  .more-to-explore {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 3rem 2rem;
+  }
+
+  .explore-title {
+    font-size: 1.5rem;
+    margin-bottom: 2rem;
+  }
+
+  .explore-grid {
+    gap: 1.5rem;
+  }
+
+  .pagination {
+    padding: 2rem 0;
+  }
+
+  .pagination-btn,
+  .pagination-number {
+    width: 44px;
+    height: 44px;
+    min-width: 44px;
+    font-size: 1rem;
   }
 }

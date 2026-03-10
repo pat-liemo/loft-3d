@@ -4,12 +4,8 @@
   align-items: center;
   padding: 1rem 1.5rem;
   color: white;
-  background: rgba(26, 26, 26, 0.95);
-  backdrop-filter: blur(10px);
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
+  background: transparent;
+  position: relative;
   z-index: 100;
 }
 
@@ -114,5 +110,31 @@
   .icon-btn {
     padding: 0.6rem;
     font-size: 1rem;
+  }
+}
+
+/* Desktop optimizations */
+@media (min-width: 769px) {
+  .header {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 1.25rem 2rem;
+  }
+
+  .location-label {
+    font-size: 0.9rem;
+  }
+
+  .location-value {
+    font-size: 1.05rem;
+  }
+
+  .icon-btn {
+    padding: 0.85rem;
+    font-size: 1.15rem;
+  }
+
+  .header-actions {
+    gap: 1.25rem;
   }
 }
