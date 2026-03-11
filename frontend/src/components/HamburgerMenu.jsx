@@ -27,7 +27,7 @@ function HamburgerMenu({ isOpen, onClose, onLoginClick }) {
 
           <Link to="/list-property" className="menu-item" onClick={onClose}>
             <i className="fas fa-plus-circle"></i>
-            <span>List with Us</span>
+            <span>Join Us</span>
             <i className="fas fa-chevron-right"></i>
           </Link>
 

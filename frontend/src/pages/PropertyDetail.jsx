@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useMemo } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
 import './PropertyDetail.css';
 
@@ -12,6 +12,8 @@ function PropertyDetail() {
   const [lightboxImage, setLightboxImage] = useState('');
   const [lightboxIndex, setLightboxIndex] = useState(0);
   const [allImages, setAllImages] = useState([]);
+  const [showShareModal, setShowShareModal] = useState(false);
+  const [showBookingModal, setShowBookingModal] = useState(false);
 
   const openLightbox = (image, index, images) => {
     setLightboxImage(image);
@@ -39,7 +41,7 @@ function PropertyDetail() {
     setLightboxImage(allImages[prevIndex]);
   };
 
-  const property = {
+  const property = useMemo(() => ({
     name: 'Nova Palace',
     rating: 4.8,
     reviews: 12,
@@ -94,7 +96,7 @@ function PropertyDetail() {
       { id: 2, name: 'Downtown Loft', image: 'https://images.unsplash.com/photo-1502672260266-1c1ef2d93688?w=200&h=150&fit=crop' },
       { id: 3, name: 'Modern Condo', image: 'https://images.unsplash.com/photo-1564013799919-ab600027ffc6?w=200&h=150&fit=crop' }
     ]
-  };
+  }), []);
 
   return (
     <div className="property-detail">
@@ -113,7 +115,10 @@ function PropertyDetail() {
           >
             <i className={`${isFavorite ? 'fas' : 'far'} fa-heart`}></i>
           </button>
-          <button className="share-btn">
+          <button 
+            className="share-btn"
+            onClick={() => setShowShareModal(true)}
+          >
             <i className="fas fa-share-alt"></i>
           </button>
         </div>
@@ -152,7 +157,7 @@ function PropertyDetail() {
           <h1 className="detail-title">{property.name}</h1>
           <div className="rating-badge">
             <i className="fas fa-star"></i>
-            <span className="rating-value">({property.reviews} reviews)</span>
+            <span className="reviews-badge" style={{color: '#333'}}>({property.reviews} reviews)</span>
           </div>
         </div>
 
@@ -328,15 +333,21 @@ function PropertyDetail() {
               overflow: 'hidden'
             }}
           >
-            <img 
-              src="https://via.placeholder.com/400x200/f0f0f0/999999?text=Map+View" 
-              alt="Map" 
+            <div 
               style={{
                 width: '100%',
                 height: '100%',
-                objectFit: 'cover'
+                background: '#f0f0f0',
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'center',
+                color: '#999',
+                fontSize: '1rem',
+                fontWeight: '500'
               }}
-            />
+            >
+              Map View
+            </div>
             <button 
               style={{
                 position: 'absolute',
@@ -379,15 +390,15 @@ function PropertyDetail() {
                   <div style={{color: '#333', fontSize: '0.9rem', fontWeight: '600'}}>Ted Jatang</div>
                 </div>
               </div>
-              <p style={{color: '#aaa', fontSize: '0.85rem', lineHeight: '1.5', margin: '0 0 0.75rem 0'}}>
+              <p style={{color: '#666', fontSize: '0.85rem', lineHeight: '1.5', margin: '0 0 0.75rem 0'}}>
                 The perfect work-and-relax spot. I stayed here for a month while on a remote work trip. The internet was strong enough for Zoom calls, and the ambience of the place made it easy to stay focused. After work, I'd walk down to the beach or chill in the garden. One of the best stays I've had in Kenya.
               </p>
               <div style={{display: 'flex', alignItems: 'center', justifyContent: 'space-between'}}>
-                <div style={{display: 'flex', alignItems: 'center', gap: '0.3rem'}}>
+                <div style={{display: 'flex', alignItems: 'center', gap: '0.3rem', fontWeight: 'bold'}}>
                   <i className="far fa-heart" style={{color: '#ffd700', fontSize: '0.9rem'}}></i>
                   <span style={{color: '#ffd700', fontSize: '0.85rem'}}>1</span>
                 </div>
-                <span style={{color: '#666', fontSize: '0.75rem'}}>Fri Nov 21 2025</span>
+                <span style={{color: '#666', fontSize: '0.75rem', fontWeight: 'bold'}}>Fri Nov 21 2025</span>
               </div>
             </div>
 
@@ -402,15 +413,15 @@ function PropertyDetail() {
                   <div style={{color: '#333', fontSize: '0.9rem', fontWeight: '600'}}>Ted Jatang</div>
                 </div>
               </div>
-              <p style={{color: '#aaa', fontSize: '0.85rem', lineHeight: '1.5', margin: '0 0 0.75rem 0'}}>
+              <p style={{color: '#666', fontSize: '0.85rem', lineHeight: '1.5', margin: '0 0 0.75rem 0'}}>
                 Average stay, room for improvement. The apartment looks nice and the location is great, but I had some issues with cleanliness when I arrived. The host did fix things after I contacted them, but it delayed my settling in. If maintenance is improved, it'll be a much better experience.
               </p>
               <div style={{display: 'flex', alignItems: 'center', justifyContent: 'space-between'}}>
-                <div style={{display: 'flex', alignItems: 'center', gap: '0.3rem'}}>
+                <div style={{display: 'flex', alignItems: 'center', gap: '0.3rem', fontWeight: 'bold'}}>
                   <i className="far fa-heart" style={{color: '#ffd700', fontSize: '0.9rem'}}></i>
                   <span style={{color: '#ffd700', fontSize: '0.85rem'}}>1</span>
                 </div>
-                <span style={{color: '#666', fontSize: '0.75rem'}}>Fri Nov 21 2025</span>
+                <span style={{color: '#666', fontSize: '0.75rem', fontWeight: 'bold'}}>Fri Nov 21 2025</span>
               </div>
             </div>
 
@@ -425,14 +436,14 @@ function PropertyDetail() {
                   <div style={{color: '#333', fontSize: '0.9rem', fontWeight: '600'}}>Ted Jatang</div>
                 </div>
               </div>
-              <p style={{color: '#aaa', fontSize: '0.85rem', lineHeight: '1.5', margin: '0 0 0.75rem 0'}}>
+              <p style={{color: '#666', fontSize: '0.85rem', lineHeight: '1.5', margin: '0 0 0.75rem 0'}}>
                 wow
               </p>
               <div style={{display: 'flex', alignItems: 'center', justifyContent: 'space-between'}}>
-                <div style={{display: 'flex', alignItems: 'center', gap: '0.3rem'}}>
+                <div style={{display: 'flex', alignItems: 'center', gap: '0.3rem', fontWeight: 'bold'}}>
                   <i className="far fa-heart" style={{color: '#666', fontSize: '0.9rem'}}></i>
                 </div>
-                <span style={{color: '#666', fontSize: '0.75rem'}}>Fri Nov 21 2025</span>
+                <span style={{color: '#666', fontSize: '0.75rem', fontWeight: 'bold'}}>Fri Nov 21 2025</span>
               </div>
             </div>
           </div>
@@ -459,7 +470,10 @@ function PropertyDetail() {
               <img 
                 src="/images/male_cv.jpg" 
                 alt="User" 
-                onError={(e) => e.target.src = '/images/pfp-default.png'}
+                onError={(e) => {
+                  console.log('Image failed to load:', e.target.src);
+                  e.target.src = '/images/pfp-default.png';
+                }}
                 style={{width: '2.5rem', height: '2.5rem', borderRadius: '50%', objectFit: 'cover'}}
               />
               <div style={{flex: 1, position: 'relative'}}>
@@ -498,7 +512,7 @@ function PropertyDetail() {
 
         <div className="verified-section" style={{background: 'transparent', padding: '2rem 1.5rem', borderRadius: '20px', margin: '1.5rem 0rem', marginTops: '1.5rem', textAlign: 'center', border: '1px solid #ddd'}}>
           <img 
-            src="/verified-removebg.png" 
+            src="/images/verified-removebg.png" 
             alt="Verified" 
             style={{width: '250px', height: '160px', margin: '0 auto', objectFit: 'cover', filter: 'drop-shadow(0 0 10px rgba(0, 0, 0, 0.2))'}}
           />
@@ -506,7 +520,28 @@ function PropertyDetail() {
           <p style={{color: '#666', fontSize: '0.85rem', margin: 0}}>This listing has been scanned & verified by Loft</p>
         </div>
 
-        {/* Gallery Modal */}
+        <div className="pairings-section">
+          <div style={{textAlign: 'center', marginBottom: '1.5rem'}}>
+            <h2 style={{color: '#333', fontSize: '1.1rem', fontWeight: '600', marginBottom: '0.5rem'}}>You May Also Like</h2>
+            <p style={{color: '#666', fontSize: '0.8rem', margin: 0}}>Explore similar properties in our collection.</p>
+          </div>          
+
+          <div className="pairings-scroll" style={{display: 'flex', overflowX: 'auto', scrollbarWidth: 'none', paddingBottom: '0.5rem'}}>
+            {property.related.map((related) => (
+              <div key={related.id} style={{position: 'relative', minWidth: '50px', width: '170px', height: '170px', borderRadius: '20px', overflow: 'hidden', flexShrink: 0}}>
+                <img src={related.image} alt={related.name} style={{width: '100%', height: '100%', objectFit: 'cover'}} />
+                <div style={{position: 'absolute', top: 0, left: 0, right: 0, bottom: 0, background: 'linear-gradient(to bottom, rgba(0,0,0,0), rgba(0,0,0,0.7))'}}></div>
+                <div style={{position: 'absolute', bottom: '1rem', left: '1rem', right: '1rem', color: 'white'}}>
+                  <h3 style={{fontSize: '1rem', fontWeight: '900', margin: '0 0 0.25rem 0'}}>{related.name}</h3>
+                  <p style={{fontSize: '0.8rem', fontWeight: '900', margin: 0, color: '#ffd700'}}>KES 53M</p>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+
+      {/* Gallery Modal */}
         {showGalleryModal && (
           <>
             <div 
@@ -519,7 +554,7 @@ function PropertyDetail() {
                 right: 0,
                 bottom: 0,
                 background: 'rgba(0, 0, 0, 0.5)',
-                zIndex: 99999
+                zIndex: 10001
               }}
             ></div>
             <div 
@@ -531,7 +566,7 @@ function PropertyDetail() {
                 right: 0,
                 background: 'white',
                 borderRadius: '20px 20px 0 0',
-                zIndex: 100000,
+                zIndex: 10002,
                 maxHeight: '90vh',
                 display: 'flex',
                 flexDirection: 'column',
@@ -675,7 +710,7 @@ function PropertyDetail() {
               right: 0,
               bottom: 0,
               background: 'rgba(0, 0, 0, 0.9)',
-              zIndex: 200000,
+              zIndex: 10003,
               display: 'flex',
               alignItems: 'center',
               justifyContent: 'center'
@@ -696,7 +731,7 @@ function PropertyDetail() {
                 height: '2rem',
                 borderRadius: '50%',
                 cursor: 'pointer',
-                zIndex: 200001,
+                zIndex: 10004,
                 display: 'flex',
                 alignItems: 'center',
                 justifyContent: 'center'
@@ -713,7 +748,7 @@ function PropertyDetail() {
                 transform: 'translateX(-50%)',
                 color: 'white',
                 fontSize: '0.8rem',
-                zIndex: 200001,
+                zIndex: 10004,
                 background: 'rgba(0, 0, 0, 0.4)',
                 padding: '0.3rem 0.8rem',
                 borderRadius: '20px',
@@ -740,7 +775,7 @@ function PropertyDetail() {
                     height: '2.5rem',
                     borderRadius: '50%',
                     cursor: 'pointer',
-                    zIndex: 200001,
+                    zIndex: 10004,
                     display: 'flex',
                     alignItems: 'center',
                     justifyContent: 'center'
@@ -764,7 +799,7 @@ function PropertyDetail() {
                     height: '2.5rem',
                     borderRadius: '50%',
                     cursor: 'pointer',
-                    zIndex: 200001,
+                    zIndex: 10004,
                     display: 'flex',
                     alignItems: 'center',
                     justifyContent: 'center'
@@ -789,27 +824,6 @@ function PropertyDetail() {
           </div>
         )}
 
-        <div className="pairings-section">
-          <div style={{textAlign: 'center', marginBottom: '1.5rem'}}>
-            <h2 style={{color: '#333', fontSize: '1.1rem', fontWeight: '600', marginBottom: '0.5rem'}}>You May Also Like</h2>
-            <p style={{color: '#666', fontSize: '0.8rem', margin: 0}}>Explore similar properties in our collection.</p>
-          </div>          
-
-          <div className="pairings-scroll" style={{display: 'flex', gap: '1rem', overflowX: 'auto', scrollbarWidth: 'none', paddingBottom: '0.5rem'}}>
-            {property.related.map((related) => (
-              <div key={related.id} style={{position: 'relative', minWidth: '50px', width: '170px', height: '170px', borderRadius: '20px', overflow: 'hidden', flexShrink: 0}}>
-                <img src={related.image} alt={related.name} style={{width: '100%', height: '100%', objectFit: 'cover'}} />
-                <div style={{position: 'absolute', top: 0, left: 0, right: 0, bottom: 0, background: 'linear-gradient(to bottom, rgba(0,0,0,0), rgba(0,0,0,0.7))'}}></div>
-                <div style={{position: 'absolute', bottom: '1rem', left: '1rem', right: '1rem', color: 'white'}}>
-                  <h3 style={{fontSize: '1rem', fontWeight: '900', margin: '0 0 0.25rem 0'}}>{related.name}</h3>
-                  <p style={{fontSize: '0.8rem', fontWeight: '900', margin: 0, color: '#ffd700'}}>KES 53M</p>
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </div>
-
       {/* Floating Booking Bar */}
       <div className="floating-booking-bar" style={{borderTopLeftRadius: '15px', borderTopRightRadius: '15px', padding: '1rem 0.75rem',}}>
         <div className="booking-price">
@@ -818,6 +832,7 @@ function PropertyDetail() {
         </div>
         <button 
           className="book-viewing-btn"
+          onClick={() => setShowBookingModal(true)}
           style={{
             background: '#ffd700',
             color: '#000',
@@ -834,6 +849,354 @@ function PropertyDetail() {
           Book a Viewing
         </button>
       </div>
+
+      {/* Share Modal */}
+      {showShareModal && (
+        <>
+          <div 
+            className="modal-overlay" 
+            onClick={() => setShowShareModal(false)}
+            style={{
+              position: 'fixed',
+              top: 0,
+              left: 0,
+              right: 0,
+              bottom: 0,
+              background: 'rgba(0, 0, 0, 0.5)',
+              zIndex: 10005,
+              animation: 'fadeIn 0.3s ease'
+            }}
+          ></div>
+          <div 
+            className="share-modal"
+            style={{
+              position: 'fixed',
+              bottom: 0,
+              left: 0,
+              right: 0,
+              background: 'white',
+              borderRadius: '30px 30px 0 0',
+              zIndex: 10006,
+              padding: '1.2rem 1.5rem 1.3rem 1.5rem',
+              animation: 'slideUp 0.3s ease',
+              transform: 'translateY(0)'
+            }}
+          >
+            <div style={{
+              display: 'flex',
+              justifyContent: 'space-between',
+              alignItems: 'center',
+              marginBottom: '1.5rem'
+            }}>
+              <h3 style={{fontSize: '1rem', fontWeight: '600', color: '#666', margin: 0}}>Share</h3>
+              <button 
+                onClick={() => setShowShareModal(false)}
+                style={{
+                  background: 'none',
+                  border: 'none',
+                  fontSize: '1.5rem',
+                  color: '#ccc',
+                  cursor: 'pointer',
+                  padding: 0,
+                  lineHeight: 1
+                }}
+              >
+                ×
+              </button>
+            </div>
+            
+            <div style={{
+              display: 'flex',
+              justifyContent: 'center',
+              alignItems: 'center',
+              gap: '1rem'
+            }}>
+              <button style={{
+                background: '#121212',
+                border: 'none',
+                borderRadius: '50%',
+                width: '50px',
+                height: '50px',
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'center',
+                cursor: 'pointer',
+                color: 'white',
+                fontSize: '1.1rem',
+                boxShadow: '0 2px 8px rgba(0,0,0,0.1)'
+              }}>
+                <i className="fab fa-whatsapp"></i>
+              </button>
+              
+              <button style={{
+                background: '#121212',
+                border: 'none',
+                borderRadius: '50%',
+                width: '50px',
+                height: '50px',
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'center',
+                cursor: 'pointer',
+                color: 'white',
+                fontSize: '1rem',
+                boxShadow: '0 2px 8px rgba(0,0,0,0.1)'
+              }}>
+                <i className="fab fa-facebook-f"></i>
+              </button>
+              
+              <button style={{
+                background: '#121212',
+                border: 'none',
+                borderRadius: '50%',
+                width: '50px',
+                height: '50px',
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'center',
+                cursor: 'pointer',
+                color: 'white',
+                fontSize: '1rem',
+                boxShadow: '0 2px 8px rgba(0,0,0,0.1)'
+              }}>
+                <i className="fab fa-twitter"></i>
+              </button>
+              
+              <button style={{
+                background: '#121212',
+                border: 'none',
+                borderRadius: '50%',
+                width: '50px',
+                height: '50px',
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'center',
+                cursor: 'pointer',
+                color: 'white',
+                fontSize: '1.1rem',
+                boxShadow: '0 2px 8px rgba(0,0,0,0.1)'
+              }}>
+                <i className="fas fa-envelope"></i>
+              </button>
+              
+              <button style={{
+                background: '#121212',
+                border: 'none',
+                borderRadius: '50%',
+                width: '50px',
+                height: '50px',
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'center',
+                cursor: 'pointer',
+                color: 'white',
+                fontSize: '1.1rem',
+                boxShadow: '0 2px 8px rgba(0,0,0,0.1)'
+              }}>
+                <i className="fas fa-link"></i>
+              </button>
+            </div>
+          </div>
+        </>
+      )}
+
+      {/* Booking Modal */}
+      {showBookingModal && (
+        <>
+          <div 
+            className="modal-overlay" 
+            onClick={() => setShowBookingModal(false)}
+            style={{
+              position: 'fixed',
+              top: 0,
+              left: 0,
+              right: 0,
+              bottom: 0,
+              background: 'rgba(0, 0, 0, 0.5)',
+              zIndex: 10005,
+              animation: 'fadeIn 0.3s ease'
+            }}
+          ></div>
+          <div 
+            className="booking-modal"
+            style={{
+              position: 'fixed',
+              bottom: 0,
+              left: 0,
+              right: 0,
+              background: 'white',
+              borderRadius: '20px 20px 0 0',
+              zIndex: 10006,
+              padding: '1.5rem 1rem',
+              animation: 'slideUp 0.3s ease',
+              transform: 'translateY(0)',
+              maxHeight: '80vh',
+              overflowY: 'auto'
+            }}
+          >
+            <div style={{
+              display: 'flex',
+              justifyContent: 'space-between',
+              alignItems: 'center',
+              marginBottom: '1.5rem'
+            }}>
+              <h3 style={{fontSize: '1.1rem', fontWeight: '600', color: '#333', margin: 0}}>Book a Viewing</h3>
+              <button 
+                onClick={() => setShowBookingModal(false)}
+                style={{
+                  background: 'none',
+                  border: 'none',
+                  fontSize: '1.2rem',
+                  color: '#999',
+                  cursor: 'pointer',
+                  padding: 0
+                }}
+              >
+                ×
+              </button>
+            </div>
+            
+            <form style={{display: 'flex', flexDirection: 'column', gap: '1rem'}}>
+              <div>
+                <label style={{display: 'block', marginBottom: '0.5rem', fontSize: '0.9rem', fontWeight: '500', color: '#333'}}>
+                  Full Name
+                </label>
+                <input 
+                  type="text" 
+                  placeholder="Enter your full name"
+                  style={{
+                    width: '100%',
+                    padding: '0.75rem',
+                    border: '1px solid #ddd',
+                    borderRadius: '8px',
+                    fontSize: '0.9rem',
+                    outline: 'none'
+                  }}
+                />
+              </div>
+              
+              <div>
+                <label style={{display: 'block', marginBottom: '0.5rem', fontSize: '0.9rem', fontWeight: '500', color: '#333'}}>
+                  Email
+                </label>
+                <input 
+                  type="email" 
+                  placeholder="Enter your email"
+                  style={{
+                    width: '100%',
+                    padding: '0.75rem',
+                    border: '1px solid #ddd',
+                    borderRadius: '8px',
+                    fontSize: '0.9rem',
+                    outline: 'none'
+                  }}
+                />
+              </div>
+              
+              <div>
+                <label style={{display: 'block', marginBottom: '0.5rem', fontSize: '0.9rem', fontWeight: '500', color: '#333'}}>
+                  Phone Number
+                </label>
+                <input 
+                  type="tel" 
+                  placeholder="Enter your phone number"
+                  style={{
+                    width: '100%',
+                    padding: '0.75rem',
+                    border: '1px solid #ddd',
+                    borderRadius: '8px',
+                    fontSize: '0.9rem',
+                    outline: 'none'
+                  }}
+                />
+              </div>
+              
+              <div>
+                <label style={{display: 'block', marginBottom: '0.5rem', fontSize: '0.9rem', fontWeight: '500', color: '#333'}}>
+                  Preferred Date
+                </label>
+                <input 
+                  type="date" 
+                  style={{
+                    width: '100%',
+                    padding: '0.75rem',
+                    border: '1px solid #ddd',
+                    borderRadius: '8px',
+                    fontSize: '0.9rem',
+                    outline: 'none'
+                  }}
+                />
+              </div>
+              
+              <div>
+                <label style={{display: 'block', marginBottom: '0.5rem', fontSize: '0.9rem', fontWeight: '500', color: '#333'}}>
+                  Preferred Time
+                </label>
+                <select 
+                  style={{
+                    width: '100%',
+                    padding: '0.75rem',
+                    border: '1px solid #ddd',
+                    borderRadius: '8px',
+                    fontSize: '0.9rem',
+                    outline: 'none',
+                    background: 'white'
+                  }}
+                >
+                  <option value="">Select time</option>
+                  <option value="09:00">9:00 AM</option>
+                  <option value="10:00">10:00 AM</option>
+                  <option value="11:00">11:00 AM</option>
+                  <option value="12:00">12:00 PM</option>
+                  <option value="13:00">1:00 PM</option>
+                  <option value="14:00">2:00 PM</option>
+                  <option value="15:00">3:00 PM</option>
+                  <option value="16:00">4:00 PM</option>
+                  <option value="17:00">5:00 PM</option>
+                </select>
+              </div>
+              
+              <div>
+                <label style={{display: 'block', marginBottom: '0.5rem', fontSize: '0.9rem', fontWeight: '500', color: '#333'}}>
+                  Message (Optional)
+                </label>
+                <textarea 
+                  placeholder="Any specific requirements or questions?"
+                  rows="3"
+                  style={{
+                    width: '100%',
+                    padding: '0.75rem',
+                    border: '1px solid #ddd',
+                    borderRadius: '8px',
+                    fontSize: '0.9rem',
+                    outline: 'none',
+                    resize: 'vertical'
+                  }}
+                ></textarea>
+              </div>
+              
+              <button 
+                type="submit"
+                style={{
+                  background: '#000',
+                  color: '#fff',
+                  border: 'none',
+                  padding: '1rem',
+                  borderRadius: '50px',
+                  fontSize: '0.9rem',
+                  fontWeight: '600',
+                  cursor: 'pointer',
+                  textTransform: 'uppercase',
+                  letterSpacing: '0.5px',
+                  marginTop: '0.5rem'
+                }}
+              >
+                Submit Request
+              </button>
+            </form>
+          </div>
+        </>
+      )}
     </div>
   );
 }

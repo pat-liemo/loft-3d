@@ -74,7 +74,7 @@ function PromoBanner() {
             <p className="promo-subtitle">{slideData.subtitle}</p>
             <button className="promo-btn">
               {slideData.buttonText}
-              <i className="fas fa-long-arrow-alt-right"></i>
+                <i className="fas fa-arrow-right"></i>
             </button>
           </div>
         </div>
@@ -99,7 +99,7 @@ function PromoBanner() {
           </div>
           <button className="promo-btn">
             {slideData.buttonText}
-            <i className="fas fa-long-arrow-alt-right"></i>
+              <i className="fas fa-arrow-right"></i>
           </button>
         </div>
       );
