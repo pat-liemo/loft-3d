@@ -106,7 +106,7 @@
 }
 
 .favorite-btn-detail.active i {
-  color: #ff4757;
+  color: #fff;
 }
 
 .favorite-btn-detail:active,
@@ -316,7 +316,7 @@
 .detail-description p {
   font-size: 0.85rem;
   line-height: 1.6;
-  color: var(--text-secondary);
+  color: #666;
   margin: 0;
 }
 

@@ -143,11 +143,11 @@ function PropertyDetail() {
         
         <div className="hero-branding">
           <div className="powered-line">
-            <i className="fas fa-cube"></i>
             <span>POWERED BY</span>
           </div>
-          <div className="brand-line" style={{fontSize: '0.9rem', fontWeight: '600', letterSpacing: '0.1em'}}>
-            <span className="brand-name">LOFT STUDIO</span>
+          <div style={{fontWeight: '300', letterSpacing: '0.1em', color: 'white', textAlign: 'center', marginTop: '0.2rem'}}>
+            <i className="fas fa-cube" style={{fontSize: '1.1rem'}}></i>
+            <span style={{fontSize: '1rem', fontWeight: '600', letterSpacing: '0.15em', color: 'white', marginLeft: '0.3em'}}>LOFT STUDIO</span>
           </div>
         </div>
       </div>
