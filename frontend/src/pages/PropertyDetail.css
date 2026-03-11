@@ -4,7 +4,10 @@
 }
 
 .detail-hero {
-  position: relative;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
   width: 100%;
   height: 65vh;
   max-height: 550px;
@@ -13,6 +16,7 @@
   justify-content: center;
   overflow: hidden;
   text-align: center;
+  z-index: 1;
 }
 
 .hero-image {
@@ -123,7 +127,7 @@
   z-index: 2;
   text-align: center;
   padding: 2rem 1.5rem;
-  margin-bottom: 1rem;
+  margin-bottom: 4rem;
 }
 
 .hero-title {
@@ -201,7 +205,7 @@
 
 .hero-branding {
   position: absolute;
-  bottom: 3.5rem;
+  bottom: 5.5rem;
   left: 50%;
   transform: translateX(-50%);
   display: flex;
@@ -236,10 +240,12 @@
 .detail-content {
   background: var(--primary-light);
   border-radius: var(--radius-xl) var(--radius-xl) 0 0;
-  margin-top: -1.5rem;
+  margin-top: calc(65vh - 3.5rem + 1.5rem);
   position: relative;
   padding: 1.8rem 0.7rem 0rem;
   z-index: 3;
+  min-height: 100vh;
+  box-shadow: 0 -4px 20px rgba(0, 0, 0, 0.1);
 }
 
 .detail-description {
@@ -791,4 +797,43 @@
   background: #e6c200;
   transform: translateY(-1px);
   transition: all 0.2s ease;
+}/* Proper
+tyDetail Overlap Scrolling - Responsive Adjustments */
+
+/* Mobile specific adjustments for overlap */
+@media (max-width: 768px) {
+  .detail-hero {
+    height: 75vh;
+    max-height: 500px;
+  }
+  
+  .detail-content {
+    margin-top: calc(65vh - 3.5rem + -2rem);
+    margin-bottom: -2.1rem;
+    min-height: 100vh;
+  }
 }
+
+/* Desktop specific adjustments for overlap */
+@media (min-width: 769px) {
+  .detail-hero {
+    height: 75vh;
+    max-height: 550px;
+  }
+  
+  .detail-content {
+    margin-top: calc(65vh - 3.5rem + -2rem);
+    margin-bottom: -2.1rem;
+    max-width: 1200px;
+    margin-left: auto;
+    margin-right: auto;
+    min-height: 100vh;
+  }
+}
+
+/* Ensure proper spacing calculation */
+/* Calculation breakdown:
+   - 65vh = hero height
+   - -3.5rem = hero-branding bottom position (to get to brand-line)
+   - +4rem = desired gap BELOW brand-line
+*/

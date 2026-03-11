@@ -81,7 +81,13 @@ function PromoBanner() {
       );
     } else {
       return (
-        <div key={index} className={`${slideClass} split-slide`}>
+        <div 
+          key={index} 
+          className={`${slideClass} split-slide`}
+          style={{
+            backgroundImage: `url(${slideData.image})`
+          }}
+        >
           <div className="promo-text">
             <h2 className="promo-title">
               {slideData.title.split('\n').map((line, i) => (
@@ -93,9 +99,6 @@ function PromoBanner() {
                 <span key={i}>{line}<br /></span>
               ))}
             </p>
-          </div>
-          <div className="promo-image">
-            <img src={slideData.image} alt="Promo" />
           </div>
           <button className="promo-btn">
             {slideData.buttonText}

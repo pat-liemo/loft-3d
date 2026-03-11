@@ -147,20 +147,55 @@
   }
 }
 
-/* Split Slide (current style) */
+/* Split Slide (updated to full-width with gradient) */
 .split-slide {
-  background: linear-gradient(135deg, #2d2d2d 0%, #1a1a1a 100%);
+  position: relative;
   border-radius: var(--radius-xl);
   padding: 1.5rem;
   overflow: hidden;
   display: flex;
   align-items: center;
   height: 180px;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+/* Ensure split slides follow the same positioning as other slides */
+.promo-slide.split-slide {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 180px;
+  transform: translateX(100%);
+  transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+  z-index: 1;
+}
+
+.promo-slide.split-slide.active {
+  position: relative;
+  transform: translateX(0);
+  z-index: 2;
+}
+
+/* Dark gradient overlay from left (darker) to right (lighter) */
+.split-slide::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(to right, rgba(0, 0, 0, 0.8) 0%, rgba(0, 0, 0, 0.4) 70%, rgba(0, 0, 0, 0.0) 100%);
+  z-index: 1;
+  pointer-events: none;
 }
 
 .promo-text {
   flex: 1;
   z-index: 2;
+  position: relative;
 }
 
 .promo-title {
@@ -179,20 +214,9 @@
   font-weight: 400;
 }
 
+/* Remove the old promo-image positioning */
 .promo-image {
-  position: absolute;
-  right: 0;
-  top: 0;
-  bottom: 0;
-  width: 45%;
-  z-index: 1;
-}
-
-.promo-image img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  border-radius: 0 var(--radius-xl) var(--radius-xl) 0;
+  display: none;
 }
 
 /* Full Image Slide */
@@ -252,8 +276,8 @@
 
 .promo-btn {
   position: absolute;
-  bottom: 1.5rem;
-  right: 1.5rem;
+  bottom: 2.5rem;
+  right: 1rem;
   background: var(--accent-gold);
   color: var(--primary-dark);
   padding: 0.5rem 1.25rem;
@@ -383,4 +407,29 @@
   .dot.active {
     width: 20px;
   }
+}
+/* Override global styles for promo banner text */
+.promo-banner .promo-title,
+.promo-banner .promo-subtitle,
+.promo-banner h2,
+.promo-banner p {
+  color: white !important;
+}
+
+.split-slide .promo-title,
+.split-slide .promo-subtitle,
+.full-image-slide .promo-title,
+.full-image-slide .promo-subtitle {
+  color: white !important;
+}
+
+/* Ensure all text elements in promo banner are white EXCEPT buttons */
+.promo-slide *:not(.promo-btn):not(.promo-btn *) {
+  color: white !important;
+}
+
+/* Keep button text black */
+.promo-btn,
+.promo-btn * {
+  color: #000 !important;
 }

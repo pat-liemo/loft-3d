@@ -124,7 +124,7 @@ function PropertyDetail() {
         </div>
         
         <div className="hero-content">
-          <h1 className="hero-title">{property.name}</h1>
+          <h1 className="hero-title" style={{fontSize: '1.6rem'}}>{property.name}</h1>
           <div className="hero-rating">
             <i className="fas fa-star"></i>
             <i className="fas fa-star"></i>
@@ -145,9 +145,9 @@ function PropertyDetail() {
           <div className="powered-line">
             <span>POWERED BY</span>
           </div>
-          <div style={{fontWeight: '300', letterSpacing: '0.1em', color: 'white', textAlign: 'center', marginTop: '0.2rem'}}>
-            <i className="fas fa-cube" style={{fontSize: '1.1rem'}}></i>
-            <span style={{fontSize: '1rem', fontWeight: '600', letterSpacing: '0.15em', color: 'white', marginLeft: '0.3em'}}>LOFT STUDIO</span>
+          <div style={{fontWeight: '300', letterSpacing: '0.1em', color: 'white', textAlign: 'center', marginTop: '0.2rem', display: 'flex', alignItems: 'center', justifyContent: 'center'}}>
+            <img src="/images/loft-studio-logo-white.svg" alt="Loft Studio" style={{height: '1.1rem', marginRight: '0.3em'}} />
+            <span style={{fontSize: '1rem', fontWeight: '600', letterSpacing: '0.15em', color: 'white'}}>LOFT STUDIO</span>
           </div>
         </div>
       </div>
