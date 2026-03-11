@@ -532,7 +532,7 @@ function PropertyDetail() {
                 <img src={related.image} alt={related.name} style={{width: '100%', height: '100%', objectFit: 'cover'}} />
                 <div style={{position: 'absolute', top: 0, left: 0, right: 0, bottom: 0, background: 'linear-gradient(to bottom, rgba(0,0,0,0), rgba(0,0,0,0.7))'}}></div>
                 <div style={{position: 'absolute', bottom: '1rem', left: '1rem', right: '1rem', color: 'white'}}>
-                  <h3 style={{fontSize: '1rem', fontWeight: '900', margin: '0 0 0.25rem 0'}}>{related.name}</h3>
+                  <h3 style={{fontSize: '1rem', fontWeight: '900', margin: '0 0 0.25rem 0', color: 'white'}}>{related.name}</h3>
                   <p style={{fontSize: '0.8rem', fontWeight: '900', margin: 0, color: '#ffd700'}}>KES 53M</p>
                 </div>
               </div>

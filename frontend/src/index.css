@@ -4,8 +4,8 @@
   --primary-dark: #1a1a1a;
   --primary-light: #ffffff;
   --accent-gold: #ffd700;
-  --text-primary: #2d2d2d;
-  --text-secondary: #8e8e93;
+  --text-primary: #333;
+  --text-secondary: #666;
   --text-light: #ffffff;
   --text-muted: rgba(255, 255, 255, 0.6);
   --star-yellow: #ffc107;
@@ -40,7 +40,7 @@ body {
   font-size: 0.9rem;
   font-weight: 400;
   line-height: 1.4;
-  color: var(--text-primary);
+  color: #666;
   background: var(--primary-dark);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -84,4 +84,30 @@ img {
 .app-wrapper {
   background: var(--primary-dark);
   min-height: 100vh;
+}/* Globa
+l heading styles */
+h1, h2, h3, h4, h5, h6 {
+  color: #333;
+  font-weight: 600;
+}
+
+/* Global text styles - only apply when no inline style is present */
+p:not([style*="color"]), 
+span:not([style*="color"]), 
+div:not([style*="color"]), 
+li:not([style*="color"]) {
+  color: #666;
+}
+
+/* Override for specific elements that should remain white */
+.hero-title,
+.hero-content h1,
+.hero-content p,
+.hero-content span,
+.hero-branding,
+.hero-branding *,
+.auth-modal h1,
+.auth-modal h2,
+.auth-modal h3 {
+  color: white !important;
 }
