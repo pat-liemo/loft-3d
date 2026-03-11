@@ -7,14 +7,13 @@
 .dark-section {
   background: linear-gradient(to top, #1a1a1a 0%, #000 100%);
   color: white;
-  /* padding-top: 4rem; */
   padding-bottom: 2rem;
   position: fixed;
   top: 0;
   left: 0;
   right: 0;
-  height: 20vh;
-  min-height: 200px;
+  height: auto;
+  min-height: calc(160px + 2rem + 4rem + 3rem + 2rem);
   z-index: -1;
   display: flex;
   flex-direction: column;
@@ -33,7 +32,7 @@
   pointer-events: none;
 }
 
-/* Light theme section - SLIDES UP to cover dark section */
+/* Light theme section - SLIDES UP to start 3rem below promo banner */
 .light-section {
   background: linear-gradient(to bottom, #fff, #f0f0f0);
   color: #333;
@@ -41,8 +40,8 @@
   min-height: 100vh;
   border-top-right-radius: 30px;
   border-top-left-radius: 30px;
-  margin-top: calc(100vh - 60vh);
-  margin-bottom: calc(100vh - 60vh);
+  margin-top: calc(160px + 2rem + 4rem + 3rem + 2rem);
+  margin-bottom: -4vh;
   position: relative;
   z-index: 1;
   box-shadow: 0 -4px 20px rgba(0, 0, 0, 0.1);
@@ -53,6 +52,9 @@
   .dark-section {
     padding-bottom: 3rem;
     align-items: center;
+    height: auto;
+    min-height: calc(280px + 2rem + 4rem + 3rem + 2rem);
+    max-height: none;
   }
 
   .dark-section > * {
@@ -62,8 +64,8 @@
 
   .light-section {
     padding: 2rem 0;
-    margin-top: calc(100vh - 60vh);
-    margin-bottom: 60vh;
+    margin-top: calc(280px + 2rem + 4rem + 3rem + 2rem);
+    margin-bottom: -4vh;
   }
 }
 
@@ -71,12 +73,14 @@
 @media (max-width: 768px) {
   .dark-section {
     padding-bottom: 1.5rem;
-    min-height: 500px;
+    height: auto;
+    min-height: calc(160px + 2rem + 4rem + 3rem + 2rem);
+    max-height: none;
   }
   
   .light-section {
     padding: 0.5rem 0;
-    margin-top: calc(100vh - 60vh);
+    margin-top: calc(160px + 2rem + 4rem + 3rem + 2rem);
     margin-bottom: -4vh;
   }
 }
