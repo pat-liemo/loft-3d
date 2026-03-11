@@ -3,6 +3,7 @@ import './PromoBanner.css';
 
 function PromoBanner() {
   const [currentSlide, setCurrentSlide] = useState(0);
+  const [prevSlide, setPrevSlide] = useState(null);
   const [direction, setDirection] = useState('next');
 
   const slides = [
@@ -41,24 +42,27 @@ function PromoBanner() {
   useEffect(() => {
     const slideInterval = setInterval(() => {
       setDirection('next');
+      setPrevSlide(currentSlide);
       setCurrentSlide((prev) => (prev + 1) % slides.length);
     }, SLIDE_DURATION);
 
     return () => {
       clearInterval(slideInterval);
     };
-  }, [slides.length]);
+  }, [slides.length, currentSlide]);
 
   const handleDotClick = (index) => {
     if (index !== currentSlide) {
       setDirection(index > currentSlide ? 'next' : 'prev');
+      setPrevSlide(currentSlide);
       setCurrentSlide(index);
     }
   };
 
   const renderSlide = (slideData, index) => {
     const isActive = index === currentSlide;
-    const slideClass = `promo-slide ${isActive ? 'active' : ''} ${direction}`;
+    const isPrev = index === prevSlide;
+    const slideClass = `promo-slide ${isActive ? 'active' : ''} ${isPrev || isActive ? direction : ''}`;
 
     if (slideData.type === 'full-image') {
       return (
