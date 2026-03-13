@@ -7,9 +7,10 @@
 
 .privacy-hero {
   position: relative;
-  background: linear-gradient(135deg, #1a1a1a 0%, #333 100%);
+  background: linear-gradient(135deg, #000 0%, #282828 100%);
   color: white;
   padding: 4rem 2rem 3rem 2rem;
+  padding-top: calc(4rem + env(safe-area-inset-top, 0px));
   text-align: center;
 }
 
@@ -29,7 +30,7 @@
 
 .privacy-container {
   max-width: 800px;
-  margin: 0 auto;
+  margin: -2 auto;
   padding: 3rem 2rem;
   background: white;
   margin-top: -1rem;
@@ -37,6 +38,8 @@
   position: relative;
   z-index: 1;
   box-shadow: 0 -4px 20px rgba(0, 0, 0, 0.1);
+  border-top-left-radius: 30px;
+  border-top-right-radius: 30px;
 }
 
 .privacy-intro {
@@ -186,7 +189,7 @@
 /* Mobile Responsiveness */
 @media (max-width: 768px) {
   .privacy-hero {
-    padding: 3rem 1rem 2rem 1rem;
+    padding: 5rem 1rem 1rem 1rem;
   }
   
   .hero-content h1 {
@@ -194,9 +197,10 @@
   }
   
   .privacy-container {
-    margin: 0;
+    margin: -2;
     padding: 2rem 1rem;
-    border-radius: 0;
+    border-top-left-radius: 30px;
+    border-top-right-radius: 30px;
   }
   
   .privacy-section h2 {

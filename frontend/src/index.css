@@ -103,11 +103,11 @@ h1, h2, h3, h4, h5, h6 {
   font-weight: 600;
 }
 
-/* Global text styles - only apply when no inline style is present */
-p:not([style*="color"]), 
-span:not([style*="color"]), 
-div:not([style*="color"]), 
-li:not([style*="color"]) {
+/* Global text styles - only apply when no inline style is present and exclude form elements */
+p:not([style*="color"]):not(input):not(select):not(textarea), 
+span:not([style*="color"]):not(input):not(select):not(textarea), 
+div:not([style*="color"]):not(input):not(select):not(textarea), 
+li:not([style*="color"]):not(input):not(select):not(textarea) {
   color: #666;
 }
 
@@ -247,10 +247,8 @@ body {
 
 /* Safe area padding for notched devices */
 @supports (padding: max(0px)) {
-  html {
-    padding-top: env(safe-area-inset-top, 0);
+  body {
     padding-bottom: env(safe-area-inset-bottom, 0);
-    background: #000 !important;
   }
 }
 

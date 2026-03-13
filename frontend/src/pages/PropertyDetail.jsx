@@ -1,4 +1,4 @@
-import { useState, useMemo } from 'react';
+import { useState, useMemo, useEffect } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
 import './PropertyDetail.css';
 
@@ -14,6 +14,11 @@ function PropertyDetail() {
   const [allImages, setAllImages] = useState([]);
   const [showShareModal, setShowShareModal] = useState(false);
   const [showBookingModal, setShowBookingModal] = useState(false);
+
+  // Scroll to top on page load
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
 
   const openLightbox = (image, index, images) => {
     setLightboxImage(image);
@@ -192,7 +197,11 @@ function PropertyDetail() {
 
         <div className="agent-section">
           <h2 className="section-title">Agent</h2>
-          <div className="agent-card">
+          <div 
+            className="agent-card"
+            onClick={() => navigate(`/agent/${property.agent.name.toLowerCase().replace(' ', '-')}`)}
+            style={{cursor: 'pointer'}}
+          >
             <img src={property.agent.avatar} alt={property.agent.name} className="agent-avatar" />
             <div className="agent-info">
               <div className="agent-name">
@@ -825,7 +834,7 @@ function PropertyDetail() {
         )}
 
       {/* Floating Booking Bar */}
-      <div className="floating-booking-bar" style={{borderTopLeftRadius: '15px', borderTopRightRadius: '15px', padding: '1rem 0.75rem',}}>
+      <div className="floating-booking-bar" style={{padding: '1rem 0.75rem',}}>
         <div className="booking-price">
           <span style={{color: '#ddd', fontSize: '0.8rem'}}>Price</span>
           <div style={{color: 'white', fontSize: '1.2rem', fontWeight: '700'}}>KES 53M</div>
@@ -1069,6 +1078,7 @@ function PropertyDetail() {
                     padding: '0.75rem',
                     border: '1px solid #ddd',
                     borderRadius: '8px',
+                    background: 'transparent !important',
                     fontSize: '0.9rem',
                     outline: 'none'
                   }}

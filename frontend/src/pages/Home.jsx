@@ -1,4 +1,4 @@
-import { useState, useRef } from 'react';
+import { useState, useRef, useEffect } from 'react';
 import Header from '../components/Header';
 import SearchBar from '../components/SearchBar';
 import PromoBanner from '../components/PromoBanner';
@@ -18,6 +18,11 @@ function Home() {
   const [isFilterOpen, setIsFilterOpen] = useState(false);
   const [isAuthOpen, setIsAuthOpen] = useState(false);
   const moreToExploreRef = useRef(null);
+
+  // Scroll to top on page load
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
 
   const handleVisualCategoryChange = (category) => {
     setActiveVisualCategory(category);

@@ -64,7 +64,7 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 1.25rem 1.5rem 1rem;
+  padding: 1.6rem 1rem 1rem;
   border-bottom: 1px solid #f5f5f5;
   flex-shrink: 0;
 }
@@ -83,7 +83,7 @@
 .logo-text {
   font-size: 1.05rem;
   font-weight: 700;
-  color: #000;
+  color: #000 !important;
   letter-spacing: 0.08em;
 }
 
@@ -151,7 +151,7 @@
 .auth-form {
   flex: 1;
   overflow-y: auto;
-  padding: 1.75rem 1.5rem 1.5rem;
+  padding: 1.75rem 1rem 1.5rem;
 }
 
 .form-group {
@@ -331,4 +331,25 @@
 .switch-link:hover {
   opacity: 0.8;
   text-decoration: underline;
+}
+/* Fix auth modal form field and checkbox colors */
+.auth-modal input[type="text"],
+.auth-modal input[type="email"],
+.auth-modal input[type="password"],
+.auth-modal input[type="checkbox"] {
+  background: white !important;
+  color: #333 !important;
+}
+
+.auth-modal input::placeholder {
+  color: #999 !important;
+}
+
+.auth-modal .checkbox-label,
+.auth-modal .checkbox-label span {
+  color: #333 !important;
+}
+
+.auth-modal label {
+  color: #333 !important;
 }

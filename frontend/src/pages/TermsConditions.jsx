@@ -1,9 +1,14 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import './TermsConditions.css';
 
 function TermsConditions() {
   const navigate = useNavigate();
+
+  // Scroll to top on page load
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
 
   return (
     <div className="terms-page">
@@ -13,7 +18,7 @@ function TermsConditions() {
           onClick={() => navigate(-1)}
           style={{
             position: 'absolute',
-            top: '1.25rem',
+            top: 'calc(1.25rem + env(safe-area-inset-top, 0px))',
             left: '1.25rem',
             background: 'rgba(255, 255, 255, 0.2)',
             border: 'none',

@@ -1,0 +1,47 @@
+.agent-properties-page {
+  min-height: 100vh;
+  background: #f0f0f0;
+  font-family: 'Quicksand', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+}
+
+.agent-hero-wrapper {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  background: linear-gradient(to bottom, #000 0%, #121212 100%);
+  z-index: 1;
+}
+
+.agent-content-wrapper {
+  background: linear-gradient(to bottom, #fff 0%, #f0f0f0 100%);
+  border-radius: 30px 30px 0 0;
+  margin-top: 400px; /* Default fallback, will be overridden by JS */
+  margin-bottom: 0; /* No negative margin */
+  position: relative;
+  z-index: 10;
+  min-height: 100vh; /* Just viewport height */
+  padding-top: 0;
+  padding-bottom: 0; /* No extra padding */
+  transition: transform 0.1s ease-out;
+}
+
+/* Mobile Responsiveness */
+@media (max-width: 768px) {
+  .agent-properties-page {
+    /* No extra padding */
+  }
+}
+
+/* Desktop Responsiveness */
+@media (min-width: 769px) {
+  .agent-properties-page {
+    /* No extra padding */
+  }
+
+  .agent-content-wrapper {
+    max-width: 1200px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
